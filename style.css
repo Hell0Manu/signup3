@@ -37,12 +37,6 @@ button, a {
     align-items: center;
 }
 
-.np-flow-header__right:hover {
-    border-radius: 50px;
-    height: 48px;
-    width: 48px;
-    background-color: #e4f1ff;
-}
 .np-logo {
     display: flex;
     align-items: center;
@@ -62,10 +56,14 @@ button, a {
     height: 24px;
 }
 
-.np-close-button {
+.np-close-button:hover {
     background: none;
     border: none;
     cursor: pointer;
+    border-radius: 50px;
+    height: 48px;
+    width: 48px;
+    background-color: #e4f1ff;
 }
 
 .tw-icon {
@@ -128,7 +126,12 @@ button, a {
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 526px;
+    max-width: 526px;
+}
+
+.form-container p {
+    text-align: center;
+
 }
 
 .form-header {
@@ -138,11 +141,13 @@ button, a {
 .form-title {
     font-size: 24px;
     margin: 0 0 1rem;
+    text-align: center;
 }
 
 .form-subtitle {
     font-size: 16px;
     margin: 0 0 1rem;
+    text-align: center;
 }
 
 .form-subtitle a {
