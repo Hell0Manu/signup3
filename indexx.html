@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container {
+            width: 85%;
+            margin: 0 auto;
+            padding: 10px;
+            padding-top: 30px;
+        }
+
+        .progressbar {
+            width: 83%;
+            counter-reset: step;
+            margin: 0 auto;
+            list-style: none;
+            display: flex;
+            height: 4px;
+            justify-content: space-between;
+        }
+
+        ul.progressbar li {
+            position: relative;
+            width: 33.33%;
+            height: 4px;
+            background-color: #d2dcb9;
+            transition: background-color 2s linear;
+        }
+
+        ul.progressbar li::after {
+            content: counter(step);
+            counter-increment: step;
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border-radius: 100%;
+            top: -13px;
+            right: 0px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            background-color: inherit;
+            transition: all 1s cubic-bezier(1, -0.47, 1, 1);
+        }
+
+        ul.progressbar li.changeColor::after {
+            background-color: green;
+        }
+
+        ul.progressbar li span {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: green;
+            height: 4px;
+            width: 0%;
+            transition: all 1s linear;
+        }
+
+        input[type="text"],
+        input[type="email"] {
+            width: 350px;
+            height: 30px;
+            text-indent: 5px;
+            font-size: 20px;
+            margin: 10px 0px 16px;
+        }
+
+        textarea {
+            width: 350px;
+            height: 60px;
+            margin: 10px 0px 16px;
+        }
+
+        div.info {
+            width: 100%;
+            height: 200px;
+            padding: 12px;
+            display: none;
+            background-color: #b8c6e2;
+        }
+
+        div.info.active {
+            display: block;
+        }
+
+
+        form {
+            width: 80%;
+            margin: 50px auto 0px auto;
+        }
+
+        @media(max-width: 667px) {
+
+            input[type="text"],
+            input[type="email"] {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+
+
+<body>
+    <div id="container">
+        <ul class="progressbar">
+            <li><span></span></li>
+            <li><span></span></li>
+            <li><span></span></li>
+        </ul>
+        <form onsubmit="return false;">
+            <div id="first" class="info active">
+                <label for="name">Name:</label><br>
+                <input type="text" required="required" id="name" placeholder="Name"><br>
+                <label for="email">Email:</label><br>
+                <input type="email" required="required" id="email" placeholder="Email"><br><br>
+                <button id="submit" onclick="nextLevel(1);">Submit</button>
+            </div>
+            <div id="second" class="info">
+                <label for="subject">What do you study:</label><br>
+                <input type="text" required="required" id="subject" placeholder="Subject"><br>
+                <input type="radio" required="required" value="
+            Yes" id="job1" name="job">I have a job.
+                <input type="radio" required="required" value="No" id="job2" name="job">I don't have a job.
+                <br><br>
+                <button id="submit" onclick="nextLevel(2);">Submit</button>
+            </div>
+            <div id="third" class="info">
+                <label for="statment">Your statment:</label><br>
+                <textarea id="statment" placeholder="type your statment here"></textarea><br>
+                <label>Can you speak Persian?</label>
+                <input type="radio" required="required" value="Yes" id="language1" name="language">Yes.
+                <input type="radio" required="required" value="No" id="language2" name="language">No.
+                <br><br>
+                <button id="submit" onclick="nextLevel(3);">Submit</button>
+            </div>
+            <div id="final" class="info">
+
+            </div>
+
+        </form>
+        <div id="clearfix"></div>
+    </div>
+    <script>
+        var allLevel = document.querySelectorAll(".info");
+        var list = document.querySelectorAll("ul li span");
+        var collectInfo = [];
+
+        function nextLevel(i) {
+            if (allLevel[i - 1].children[2].value != "") {
+                if (allLevel[i - 1].children[4].type == "radio") {
+                    if (allLevel[i - 1].children[4].checked == false && allLevel[i - 1].children[5].checked == false) {
+                        alert("hey first check one of the option!!!");
+                    } else {
+
+                        allLevel[i - 1].classList = "info";
+                        allLevel[i].classList = "info active";
+                        list[i - 1].style.width = "100%";
+                        list[i - 1].parentElement.className = "changeColor";
+
+                        collectInfo.push(allLevel[i - 1].children[2].value);
+                        if (allLevel[i - 1].children[4].checked == true) {
+                            collectInfo.push(allLevel[i - 1].children[4].value);
+                        } else {
+                            collectInfo.push(allLevel[i - 1].children[5].value);
+                        }// end of checking which radio button user checked  
+                        if (i != "3") {
+
+                            var message = document.querySelector("#final");
+                            if (collectInfo[3] == "Yes") { job = "you have a job"; } else { job = "you do not have a job"; }
+                            if (collectInfo[5] == "Yes") { lan = "you know Persain"; } else { lan = "you do not know Persain"; }
+
+
+                            message.innerHTML = "Hi " + collectInfo[0] + " welcome to my aplication you email address is: " + collectInfo[1] + ". As you said you study " + collectInfo[2] + " and " + job + " and " + lan + "<br> Here is your statment which i loved it. " + collectInfo[4] + ".";
+                        }
+
+                    }// end of condition that check, if the user checked or not
+                } else {
+                    allLevel[i - 1].classList = "info";
+                    allLevel[i].classList = "info active";
+                    list[i - 1].style.width = "100%";
+                    list[i - 1].parentElement.className = "changeColor";
+
+                    collectInfo.push(allLevel[i - 1].children[2].value);
+                    collectInfo.push(allLevel[i - 1].children[6].value);
+
+
+                }
+
+            } else {
+                alert("hey fill the form first!!!");
+            }
+        }
+    </script>
+</body>
+
+
+</html>

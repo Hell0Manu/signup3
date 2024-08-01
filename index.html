@@ -1,91 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <div class="tw-flow">
+    <header>
         <nav>
             <div class="np-flow-navigation">
                 <div class="np-flow-header">
                     <div class="np-flow-header__left">
                         <span aria-label="Sults" role="img" class="np-logo">
                             imagem sults
-                            
+
                         </span>
                     </div>
                     <div class="np-flow-header__right">
                         <button type="button" class="np-close-button" aria-label="Fechar">
                             <span class="tw-icon tw-icon-cross" aria-hidden="true" role="none" data-testid="cross-icon">
                                 <svg width="24" height="24" fill="currentColor" focusable="false" viewBox="0 0 24 24">
-                                    <path d="m19.629 5.915-1.2-1.2-6.257 6.257-6.258-6.257-1.2 1.2 6.258 6.257-6.258 6.257 1.2 1.2 6.258-6.257 6.257 6.257 1.2-1.2-6.258-6.257 6.258-6.257Z"></path>
+                                    <path
+                                        d="m19.629 5.915-1.2-1.2-6.257 6.257-6.258-6.257-1.2 1.2 6.258 6.257-6.258 6.257 1.2 1.2 6.258-6.257 6.257 6.257 1.2-1.2-6.258-6.257 6.258-6.257Z">
+                                    </path>
                                 </svg>
                             </span>
                         </button>
                     </div>
-                    <!--
-                    <div class="np-flow-header__center">
-                        <div class="tw-stepper np-flow-navigation__stepper">
-                            <div class="progress">
-                                <div class="progress-bar"></div>
-                            </div>
-                            <ol class="tw-stepper-steps">
-                                <li class="tw-stepper__step np-text-body-default-bold tw-stepper__step--active" aria-current="step">
-                                    <span class="tw-stepper__step-label">E-mail</span>
-                                </li>
-                                <li class="tw-stepper__step np-text-body-default" aria-current="false">
-                                    <span class="tw-stepper__step-label">Tipo de conta</span>
-                                </li>
-                                <li class="tw-stepper__step np-text-body-default" aria-current="false">
-                                    <span class="tw-stepper__step-label">País</span>
-                                </li>
-                                <li class="tw-stepper__step np-text-body-default" aria-current="false">
-                                    <span class="tw-stepper__step-label">Verificação em duas etapas</span>
-                                </li>
-                                <li class="tw-stepper__step np-text-body-default" aria-current="false">
-                                    <span class="tw-stepper__step-label">Senha</span>
-                                </li>
-                            </ol>
-                        </div>
-                    </div>
-                    -->
+                    <!-- Progress -->
+                  
                 </div>
             </div>
         </nav>
-        <div>
-            <section class="tw-flow__main">
-                <div class="tw-flow__steps">
-                    <div class="tw-flow__step container">
-                        <div class="step-content">
-                            <div class="form-container">
-                                <div class="form-header">
-                                    <h1 class="form-title">Criar a sua conta da Sults</h1>
-                                    <p class="form-subtitle">Já possui uma conta? <a href="/login">Entrar</a></p>
-                                    <form action="#" method="post">
-                                        <div class="g-recaptcha" data-sitekey="6LeBJjUaAAAAAGlzJOGn0p5Y4r7xIGSzSKFm0ZYJ" data-callback="reCaptchaV2Callback" data-error-callback="reCaptchaV2ErrorCallback" data-size="invisible"></div>
-                                        <label for="email">Primeiro, insira o seu endereço de e-mail</label>
-                                        <input id="email" name="email" autocomplete="email" type="email" class="form-input" title="Primeiro, insira o seu endereço de e-mail" aria-label="Primeiro, insira o seu endereço de e-mail" value="">
-                                        <button class="btn-submit" type="submit" aria-live="off">Próximo</button>
-                                    </form>
-                                    <div class="social-login">
-                                        <p>Ou entre com</p>
-                                        <div class="social-buttons">
-                                            <button type="button" class="social-button google" aria-label="Entrar com Google"></button>
-                                            <button type="button" class="social-button facebook" aria-label="Entrar com Facebook"></button>
-                                            <button type="button" class="social-button apple" aria-label="Entrar com Apple"></button>
-                                        </div>
+    </header>
+    <main class="tw-flow">
+        <section class="tw-flow__main">
+            <div class="tw-flow__steps">
+                <div class="tw-flow__step container">
+                    <div class="step-content">
+                        <div class="form-container">
+                            <div class="form-header">
+                                <h1 class="form-title">Crie sua conta SULTS grátis
+                                </h1>
+                                <!-- <p class="form-subtitle">Já possui uma conta? <a href="/login">Entrar</a></p> -->
+                                <form action="#" method="post">
+                                    <div class="g-recaptcha" data-sitekey="6LeBJjUaAAAAAGlzJOGn0p5Y4r7xIGSzSKFm0ZYJ"
+                                        data-callback="reCaptchaV2Callback"
+                                        data-error-callback="reCaptchaV2ErrorCallback" data-size="invisible"></div>
+                                    <label for="email">Primeiro, insira o seu nome</label>
+                                    <input id="email" name="email" autocomplete="email" type="email" class="form-input"
+                                        title="Primeiro, insira o seu endereço de e-mail"
+                                        aria-label="Primeiro, insira o seu endereço de e-mail" value="">
+                                    <button class="btn-submit" type="submit" aria-live="off">Próximo</button>
+                                </form>
+                                <div class="social-login">
+                                    <p>Ou entre com</p>
+                                    <div class="social-buttons">
+                                        <button type="button" class="social-button google"
+                                            aria-label="Entrar com Google"></button>
+                                        <button type="button" class="social-button facebook"
+                                            aria-label="Entrar com Facebook"></button>
+                                        <button type="button" class="social-button apple"
+                                            aria-label="Entrar com Apple"></button>
                                     </div>
-                                    <p>Ao se cadastrar, você aceita os nossos <a target="_blank" href="/terms-and-conditions">Termos de Uso</a> e a nossa <a target="_blank" href="/privacy-policy">Política de Privacidade</a>.</p>
                                 </div>
+                                <p>Ao se cadastrar, você aceita os nossos <a target="_blank"
+                                        href="/terms-and-conditions">Termos de Uso</a> e a nossa <a target="_blank"
+                                        href="/privacy-policy">Política de Privacidade</a>.</p>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
-        </div>
-    </div>
+            </div>
+        </section>
+
+    </main>
 </body>
+    <script src="script.js"></script>
 </html>

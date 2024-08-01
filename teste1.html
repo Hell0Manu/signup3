@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container {
+            width: 85%;
+            margin: 0 auto;
+            padding: 10px;
+            padding-top: 30px;
+        }
+
+        .progressbar {
+            width: 83%;
+            counter-reset: step;
+            margin: 0 auto;
+            list-style: none;
+            display: flex;
+            height: 4px;
+            justify-content: space-between;
+        }
+
+        ul.progressbar li {
+            position: relative;
+            width: 33.33%;
+            height: 4px;
+            background-color: #d2dcb9;
+            transition: background-color 2s linear;
+        }
+
+        ul.progressbar li::after {
+            content: counter(step);
+            counter-increment: step;
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border-radius: 100%;
+            top: -13px;
+            right: 0px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            background-color: inherit;
+            transition: all 1s cubic-bezier(1, -0.47, 1, 1);
+        }
+
+        ul.progressbar li.changeColor::after {
+            background-color: green;
+        }
+
+        ul.progressbar li span {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: green;
+            height: 4px;
+            width: 0%;
+            transition: all 1s linear;
+        }
+
+        input[type="text"],
+        input[type="email"] {
+            width: 350px;
+            height: 30px;
+            text-indent: 5px;
+            font-size: 20px;
+            margin: 10px 0px 16px;
+        }
+
+        textarea {
+            width: 350px;
+            height: 60px;
+            margin: 10px 0px 16px;
+        }
+
+
+
+        div.info.active {
+            display: block;
+        }
+
+
+        form {
+            width: 80%;
+            margin: 50px auto 0px auto;
+        }
+
+        @media(max-width: 667px) {
+
+            input[type="text"],
+            input[type="email"] {
+                width: 100%;
+            }
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        button,
+        a {
+            cursor: pointer;
+        }
+
+        .tw-flow {
+            display: flex;
+            justify-content: center;
+        }
+
+        .np-flow-navigation {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .np-flow-header {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 1200px;
+            height: 56px;
+            padding: 0 1.5rem;
+        }
+
+        .np-flow-header__left,
+        .np-flow-header__right {
+            display: flex;
+            align-items: center;
+        }
+
+        .np-logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .np-logo-svg {
+            fill: #163300;
+        }
+
+        .np-logo-svg--size-sm {
+            width: 26px;
+            height: 24px;
+        }
+
+        .np-logo-svg--size-md {
+            width: 106px;
+            height: 24px;
+        }
+
+        .np-close-button {
+            background: none;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .np-close-button:hover {
+            border-radius: 50px;
+            height: 48px;
+            width: 48px;
+            background-color: #e4f1ff;
+        }
+
+        .btn-submit:hover {
+            background: linear-gradient(#0285ff 0, #1980e0 100%);
+        }
+
+        .tw-icon {
+            width: 24px;
+            height: 24px;
+        }
+
+        .np-flow-header__center {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+
+
+        .btn {
+            background-color: #55b776;
+            margin: 5px;
+            width: 75px;
+            color: white;
+        }
+
+        .btn:hover {
+            color: white;
+        }
+
+        .btn:focus {
+            color: white;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+        }
+
+        .tw-flow__main {
+
+            padding: 2rem 1.5rem;
+        }
+
+        .container {
+            max-width: 1100px;
+            max-height: 519.312px;
+            margin: 0 auto;
+        }
+
+        .form-container {
+            /* background: #fff; */
+            padding: 2rem;
+            border-radius: 8px;
+            /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+            max-width: 526px;
+        }
+
+        .form-container p {
+            text-align: center;
+
+        }
+
+        .form-header {
+            margin-bottom: 2rem;
+        }
+
+        .form-title {
+            font-size: 24px;
+            margin: 0 0 1rem;
+            text-align: center;
+        }
+
+        .form-subtitle {
+            font-size: 16px;
+            margin: 0.5rem 0 2.5rem;
+            text-align: center;
+        }
+
+        .form-subtitle a {
+            color: #007bff;
+        }
+
+
+
+        .form-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            font-size: 16px;
+            margin: 0.5rem 0 1rem;
+            border: 1px solid #000;
+            border-radius: 10px;
+            box-sizing: border-box;
+        }
+
+        .form-input:focus {
+            border: 3px solid #000;
+        }
+
+        .btn-submit {
+            background: linear-gradient(#00acac 0, #00acac 100%);
+            color: #fff;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            border-radius: 20px;
+        }
+
+        .btn-submit:hover {
+            background-color: #0056b3;
+        }
+
+        .social-login {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .social-button {
+            background-position: 50%;
+            background-repeat: no-repeat;
+            padding-left: 44px;
+            border-color: #0e0f0c1f;
+            background-color: transparent;
+            transition: all .15s ease-in-out;
+            transition-property: color, border-color, background-color;
+            min-height: 40px !important;
+            display: block;
+            width: 100%;
+            border-radius: 20px;
+        }
+
+
+        .social-button.google {
+            background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiB3aWR0aD0iMjQiPjxwYXRoIGQ9Ik0yMi41NiAxMi4yNWMwLS43OC0uMDctMS41My0uMi0yLjI1SDEydjQuMjZoNS45MmMtLjI2IDEuMzctMS4wNCAyLjUzLTIuMjEgMy4zMXYyLjc3aDMuNTdjMi4wOC0xLjkyIDMuMjgtNC43NCAzLjI4LTguMDl6IiBmaWxsPSIjNDI4NUY0Ii8+PHBhdGggZD0iTTEyIDIzYzIuOTcgMCA1LjQ2LS45OCA3LjI4LTIuNjZsLTMuNTctMi43N2MtLjk4LjY2LTIuMjMgMS4wNi0zLjcxIDEuMDYtMi44NiAwLTUuMjktMS45My02LjE2LTQuNTNIMi4xOHYyLjg0QzMuOTkgMjAuNTMgNy43IDIzIDEyIDIzeiIgZmlsbD0iIzM0QTg1MyIvPjxwYXRoIGQ9Ik01Ljg0IDE0LjA5Yy0uMjItLjY2LS4zNS0xLjM2LS4zNS0yLjA5cy4xMy0xLjQzLjM1LTIuMDlWNy4wN0gyLjE4QzEuNDMgOC41NSAxIDEwLjIyIDEgMTJzLjQzIDMuNDUgMS4xOCA0LjkzbDIuODUtMi4yMi44MS0uNjJ6IiBmaWxsPSIjRkJCQzA1Ii8+PHBhdGggZD0iTTEyIDUuMzhjMS42MiAwIDMuMDYuNTYgNC4yMSAxLjY0bDMuMTUtMy4xNUMxNy40NSAyLjA5IDE0Ljk3IDEgMTIgMSA3LjcgMSAzLjk5IDMuNDcgMi4xOCA3LjA3bDMuNjYgMi44NGMuODctMi42IDMuMy00LjUzIDYuMTYtNC41M3oiIGZpbGw9IiNFQTQzMzUiLz48cGF0aCBkPSJNMSAxaDIydjIySDF6IiBmaWxsPSJub25lIi8+PC9zdmc+);
+        }
+
+
+        .social-button.facebook {
+            background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6c2tldGNoPSJodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2gvbnMiPjx0aXRsZT5pY19mYWNlYm9va19kZWZhdWx0PC90aXRsZT48ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz48cGF0aCBkPSJNMjIuNTgyIDBoLTIxLjI2M2MtLjcyOSAwLTEuMzE5LjU5MS0xLjMxOSAxLjMxOXYyMS4yNjNjMCAuNzI5LjU5IDEuMzE5IDEuMzE5IDEuMzE5aDExLjQ0N3YtOS4yNTZoLTMuMTE1di0zLjYwN2gzLjExNXYtMi42NmMwLTMuMDg3IDEuODg2LTQuNzY4IDQuNjM5LTQuNzY4IDEuMzE5IDAgMi40NTMuMDk4IDIuNzgzLjE0MnYzLjIyNmwtMS45MS4wMDFjLTEuNDk4IDAtMS43ODguNzEyLTEuNzg4IDEuNzU2djIuMzAzaDMuNTcybC0uNDY1IDMuNjA3aC0zLjEwN3Y5LjI1Nmg2LjA5MWMuNzI5IDAgMS4zMTktLjU5MSAxLjMxOS0xLjMxOXYtMjEuMjYzYzAtLjcyOS0uNTkxLTEuMzE5LTEuMzE5LTEuMzE5IiBza2V0Y2g6dHlwZT0iTVNTaGFwZUdyb3VwIiBmaWxsPSIjM0I1OTk4Ii8+PC9zdmc+);
+        }
+
+        .social-button.apple {
+            background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMjIiIHZpZXdCb3g9IjAgMCAxOCAyMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTE0Ljk2MzEgMTEuNjkwNEMxNC45MzU0IDguOTAzNjEgMTcuMjM1NiA3LjU2NzAxIDE3LjMzODQgNy40OTk1M0MxNi4wNDU3IDUuNjA5MzIgMTQuMDMxNyA1LjM0OTk2IDEzLjMxNDggNS4zMjA0NEMxMS42MDIyIDUuMTQ2NSA5Ljk3MTM0IDYuMzI5MjcgOS4xMDI0NiA2LjMyOTI3QzguMjM1MzkgNi4zMjkyNyA2Ljg5MyA1LjM0NTkzIDUuNDcyNzkgNS4zNzA5OEMzLjYwNDUyIDUuMzk4NyAxLjg4MjQ2IDYuNDU3NiAwLjkyMTA0MiA4LjEyOTk5Qy0xLjAxOTIzIDExLjQ5NTkgMC40MjQ2ODIgMTYuNDg0MSAyLjMxNTMyIDE5LjIxNThDMy4yMzk2MiAyMC41NTExIDQuMzQxOSAyMi4wNTM2IDUuNzg4MDUgMjEuOTk4NUM3LjE4MTg3IDIxLjk0MzUgNy43MDc3MiAyMS4wOTcxIDkuMzkyNjkgMjEuMDk3MUMxMS4wNzc3IDIxLjA5NzEgMTEuNTUwOCAyMS45OTg1IDEzLjAyNTEgMjEuOTcwNEMxNC41MjM5IDIxLjk0MzEgMTUuNDc0MiAyMC42MDk2IDE2LjM5MDkgMTkuMjY5MUMxNy40NTIxIDE3LjcxNzggMTcuODg5IDE2LjIxNTggMTcuOTE0OSAxNi4xMzk3QzE3Ljg4MjIgMTYuMTI0NiAxNC45OTMgMTUuMDE3OCAxNC45NjMxIDExLjY5MDRaIiBmaWxsPSJibGFjayIvPgo8cGF0aCBkPSJNMTIuMTkyOSAzLjUxMjUyQzEyLjk1OTggMi41ODE1MiAxMy40Nzk0IDEuMjg3ODUgMTMuMzM4MSAwQzEyLjIzMTMgMC4wNDQ3MTcxIDEwLjg5MTYgMC43MzU1OTUgMTAuMDk3IDEuNjY1NzFDOS4zODUwNyAyLjQ5MTE5IDguNzYyNiAzLjgwNTQyIDguOTI5NDQgNS4wNzAwMkMxMC4xNjQxIDUuMTY1NzEgMTEuNDIzMyA0LjQ0MTc0IDEyLjE5MjkgMy41MTI1MloiIGZpbGw9ImJsYWNrIi8+Cjwvc3ZnPgo=);
+        }
+
+
+        /*Hover*/
+        .social-button.social-button.google:hover {
+            background-color: #007bff;
+        }
+
+        .social-button.facebook:hover {
+            background-color: #3b5998;
+        }
+
+        .social-button.apple:hover {
+            fill: white;
+            background-color: black;
+        }
+
+        .social-login p {
+            text-align: start;
+        }
+
+        .social-login a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .social-login a:hover {
+            text-decoration: underline;
+        }
+
+
+        div.info {
+
+            display: none;
+
+        }
+    </style>
+</head>
+
+
+
+<body>
+    <div id="container">
+
+
+        <nav>
+
+            <div class="np-flow-navigation">
+                <div class="np-flow-header">
+                    <div class="np-flow-header__left">
+                        <span aria-label="Sults" role="img" class="np-logo">
+                            imagem sults
+
+                        </span>
+                    </div>
+                    <!-- Progress -->
+                    <ul class="progressbar">
+                        <li><span></span></li>
+                        <li><span></span></li>
+                        <li><span></span></li>
+                    </ul>
+                    <div class="np-flow-header__right">
+                        <button type="button" class="np-close-button" aria-label="Fechar">
+                            <span class="tw-icon tw-icon-cross" aria-hidden="true" role="none" data-testid="cross-icon">
+                                <svg width="24" height="24" fill="currentColor" focusable="false" viewBox="0 0 24 24">
+                                    <path
+                                        d="m19.629 5.915-1.2-1.2-6.257 6.257-6.258-6.257-1.2 1.2 6.258 6.257-6.258 6.257 1.2 1.2 6.258-6.257 6.257 6.257 1.2-1.2-6.258-6.257 6.258-6.257Z">
+                                    </path>
+                                </svg>
+                            </span>
+                        </button>
+                    </div>
+                    
+
+                </div>
+            </div>
+        </nav>
+        <main class="tw-flow">
+            <section class="tw-flow__main">
+                <div class="tw-flow__steps">
+                    <div class="tw-flow__step container">
+                        <div class="step-content">
+                            <div class="form-container">
+                                <div class="form-header">
+                                    <h1 class="form-title">Criar a sua conta da Sults</h1>
+                                    <p class="form-subtitle">Já possui uma conta? <a href="/login">Entrar</a></p>
+                                    <form onsubmit="return false;" method="post">
+                                        <div id="first" class="info active">
+                                            <label for="email">Primeiro, insira o seu endereço de e-mail</label>
+                                            <input id="email" name="email" autocomplete="email" type="email"
+                                                class="form-input" title="Primeiro, insira o seu endereço de e-mail"
+                                                aria-label="Primeiro, insira o seu endereço de e-mail" value="">
+                                            <button class="btn-submit" type="button" id="next-button-1"
+                                                onclick="nextLevel(1);" aria-live="off">Próximo</button>
+                                        </div>
+                                        <div id="second" class="info">
+                                            <label for="subject">What do you study:</label><br>
+                                            <input type="text" required="required" id="subject"
+                                                placeholder="Subject"><br>
+                                            <input type="radio" required="required" value="Yes" id="job1" name="job">I
+                                            have a job.
+                                            <input type="radio" required="required" value="No" id="job2" name="job">I
+                                            don't have a job.
+                                            <br><br>
+                                            <button id="next-button-2" type="button"
+                                                onclick="nextLevel(2);">Submit</button>
+                                        </div>
+
+                                        <div id="third" class="info">
+                                            <label for="statment">Your statment:</label><br>
+                                            <textarea id="statment"
+                                                placeholder="type your statment here"></textarea><br>
+                                            <label>Can you speak Persian?</label>
+                                            <input type="radio" required="required" value="Yes" id="language1"
+                                                name="language">Yes.
+                                            <input type="radio" required="required" value="No" id="language2"
+                                                name="language">No.
+                                            <br><br>
+                                            <button id="submit" onclick="nextLevel(3);">Submit</button>
+                                        </div>
+
+                                        <div id="final" class="info">
+                                            seila
+                                        </div>
+
+                                    </form>
+                                    <div class="social-login">
+                                        <!-- Seus botões sociais -->
+                                    </div>
+                                    <p>Ao se cadastrar, você aceita os nossos <a target="_blank"
+                                            href="/terms-and-conditions">Termos de Uso</a> e a nossa <a target="_blank"
+                                            href="/privacy-policy">Política de Privacidade</a>.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <div id="clearfix"></div>
+    </div>
+    <script>
+        var allLevel = document.querySelectorAll(".info");
+        var list = document.querySelectorAll("ul li span");
+        var collectInfo = [];
+
+        function nextLevel(i) {
+            var currentStep = allLevel[i - 1];
+            var nextStep = allLevel[i];
+            var emailInput = currentStep.querySelector("#email");
+            var subjectInput = currentStep.querySelector("#subject");
+            var jobRadio1 = currentStep.querySelector("#job1");
+            var jobRadio2 = currentStep.querySelector("#job2");
+            var errorMessage = "hey fill the form first!!!";
+            var statment = currentStep.querySelector("#statment");
+            var language1 = currentStep.querySelector("#language1");
+            var language2 = currentStep.querySelector("#language2");
+            var message = document.querySelector("#final");
+
+            if (currentStep === allLevel[0]) {
+                if (emailInput.value.trim() === "") {
+                    alert(errorMessage);
+                    return;
+                }
+                collectInfo.push(emailInput.value.trim());
+            } else if (currentStep === allLevel[1]) {
+                if (subjectInput.value.trim() === "") {
+                    alert(errorMessage);
+                    return;
+                }
+                if (!jobRadio1.checked && !jobRadio2.checked) {
+                    alert("hey first check one of the option!!!");
+                    return;
+                }
+                collectInfo.push(subjectInput.value.trim());
+                collectInfo.push(jobRadio1.checked ? jobRadio1.value : jobRadio2.value);
+            } else if (currentStep === allLevel[2]) {
+                if (statment.value.trim() === "") {
+                    alert(errorMessage);
+                    return;
+                }
+                if (!statment && !language1 && !language1) {
+                    alert("hey first check one of the option!!!");
+                    return;
+                }
+                collectInfo.push(statment.value.trim());
+                if (language1.checked) {
+                    collectInfo.push(language1.value);
+                } else {
+                    collectInfo.push(language12.value);
+                }
+
+            } else if (i != "3") {
+                
+            }
+
+
+            // Update progress and switch to next step
+            currentStep.classList.remove("active");
+            nextStep.classList.add("active");
+            list[i - 1].style.width = "100%";
+            list[i - 1].parentElement.classList.add("changeColor");
+            list[i - 1].parentElement.classList.add(" ul.progressbar li::after");
+        }
+    </script>
+</body>
+
+
+</html>
