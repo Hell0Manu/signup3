@@ -36,17 +36,34 @@
     </header>
 
     <main>
-        <section class="ct-form">
+        <section id="ct-form">
             <div class="gp-form">
                 <h1 class="form-title">Crie sua conta SULTS grátis</h1>
                 <p class="form-subtitle">Já possui uma conta? <a href="/login">Entrar</a></p>
 
-                <form action="#" method="post">
+                <form id="formInitial">
                     <label for="email">Primeiro, insira o seu endereço de e-mail</label>
+
                     <input id="email" name="email" autocomplete="email" type="email" class="form-input"
                         title="Primeiro, insira o seu endereço de e-mail"
                         aria-label="Primeiro, insira o seu endereço de e-mail" value="">
-                    <button class="btn-submit" type="submit">Próximo</button>
+
+                    <div role="alert" class="alert-error-email">
+                        <span class="error-circle">
+                            <span class="icon-error" aria-hidden="true" role="none">
+                                <svg width="16" height="16" fill="currentColor" focusable="false" viewBox="0 0 24 24">
+                                    <path
+                                        d="m19.629 5.915-1.2-1.2-6.257 6.257-6.258-6.257-1.2 1.2 6.258 6.257-6.258 6.257 1.2 1.2 6.258-6.257 6.257 6.257 1.2-1.2-6.258-6.257 6.258-6.257Z">
+                                    </path>
+                                </svg></span>
+                        </span>
+                        <div id="error-email" class="login-error-message">
+                            <p>Por favor, insira um endereço de e-mail válido</p>
+                        </div>
+                    </div>
+
+
+                    <button class="btn-submit" type="submit" onclick="RegisterFormSubmit(event)">Próximo</button>
                 </form>
                 <div class="social-login">
                     <p class="subtitle-social">Ou entre com</p>
@@ -57,12 +74,84 @@
                     </div>
                 </div>
                 <p class="termos">Ao se cadastrar, você aceita os nossos <a target="_blank"
-                        href="/terms-and-conditions">Termos de
-                        Uso</a> e a nossa <a target="_blank" href="/privacy-policy">Política de Privacidade</a>.</p>
+                        href="/terms-and-conditions">Termos de Uso</a>
+                    e a nossa <a target="_blank" href="/privacy-policy">Política de Privacidade</a>.
+                </p>
             </div>
             </div>
         </section>
+
+        <section id="account-selection-section">
+        <div>
+            <div class="ct-account-selection">
+                <button class="back-button" type="button" aria-live="off">
+                    <span class="back-button-content">
+                        <span class="back-icon" aria-hidden="true">
+                            <svg width="16" height="16" fill="currentColor" focusable="false" viewBox="0 0 24 24">
+                                <path
+                                    d="M22.286 11.316H4.629l7.114-7.114-1.2-1.2-8.572 8.571a.829.829 0 0 0 0 1.2l8.572 8.572 1.2-1.2-7.114-7.114h17.657v-1.715Z">
+                                </path>
+                            </svg>
+                        </span>
+                        <span class="back-button-text">Voltar</span>
+                    </span>
+                </button>
+
+                <div class="step-content">
+                    <h1 class="form-title">Que tipo de conta você gostaria de abrir hoje?</h1>
+                    <p class="form-subtitle">Você também pode adicionar outra conta mais tarde.</p>
+
+                    <div class="account-options">
+                        <button class="account-option">
+                            <div class="account-option-media">
+                                <picture>
+                                    <source width="200" height="200" media="(max-width: 575px)"
+                                        srcset="https://wise.com/web-art/assets/illustrations/house-small@1x.webp, https://wise.com/web-art/assets/illustrations/house-small@2x.webp 2x">
+                                    <img alt="Conta Pessoal"
+                                        src="https://wise.com/web-art/assets/illustrations/house-medium@1x.webp"
+                                        srcset="https://wise.com/web-art/assets/illustrations/house-medium@2x.webp 2x"
+                                        width="300" height="300">
+                                </picture>
+                            </div>
+                            <h3 class="option-title">Conta Pessoal</h3>
+                            <span class="option-description">Envie, pague e receba no mundo todo gastando
+                                menos.</span>
+                        </button>
+
+                        <button class="account-option">
+                            <div class="account-option-media">
+                                <picture>
+                                    <source width="200" height="200" media="(max-width: 575px)"
+                                        srcset="https://wise.com/web-art/assets/illustrations/briefcase-small@1x.webp, https://wise.com/web-art/assets/illustrations/briefcase-small@2x.webp 2x">
+                                    <img alt="Conta Empresarial"
+                                        src="https://wise.com/web-art/assets/illustrations/briefcase-medium@1x.webp"
+                                        srcset="https://wise.com/web-art/assets/illustrations/briefcase-medium@2x.webp 2x"
+                                        width="300" height="300">
+                                </picture>
+                            </div>
+                            <h3 class="option-title">Conta Empresarial</h3>
+                            <span class="option-description">Faça negócios ou preste serviços autônomos
+                                internacionalmente.</span>
+                        </button>
+                    </div>
+
+                    <p class="termos"> Você deve usar a SULTS de acordo com a nossa
+                        <a href="https://wise.com/acceptable-use-policy" target="_blank" class="policy-link" rel="noreferrer"> Política de Uso Aceitável
+                            <span class="external-link-icon">
+                                <svg width="16" height="16" fill="currentColor" focusable="false" viewBox="0 0 24 24">
+                                    <path fill-rule="evenodd"
+                                        d="M12.857 1.287h8.571a.86.86 0 0 1 .857.857v8.572h-1.714V4.2l-9.428 9.429-1.2-1.2 9.428-9.429h-6.514V1.287ZM3.429 20.998H18v-6h1.714v6.857a.86.86 0 0 1-.857.858H2.572a.86.86 0 0 1-.858-.858V4.713a.86.86 0 0 1 .857-.858h6V5.57H3.43v15.428Z"
+                                        clip-rule="evenodd">
+                                    </path>
+                                </svg>
+                            </span>
+                        </a>. Você não pode usar uma conta pessoal para fins comerciais.
+                    </p>
+                </div>
+        </section>
+
     </main>
+    <script src="scripts.js"></script>
 </body>
 
 </html>
