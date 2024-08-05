@@ -1,115 +1,173 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-search">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Seletor com Bandeiras e Pesquisa</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .search-select {
+            position: relative;
+            display: inline-block;
+            max-width: 400px;
+            min-width: 100px;
+        }
+
+        .search-input {
+            position: relative;
+        }
+
+        .search-input input {
+            padding-right: 30px;
+            width: 100%;
+            box-sizing: border-box;
+            cursor: pointer;
+        }
+
+        .search-button {
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        .search-button i {
+            font-size: 1.2em;
+        }
+
+        .search-list {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            border: 1px solid #ccc;
+            width: 100%;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            max-height: 200px;
+            overflow-y: auto;
+            z-index: 1;
+        }
+
+        .search-select:focus-within .search-list {
+            display: block;
+        }
+
+        .search-input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 10px;
+            border: none;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .search-item {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            cursor: pointer;
+            border-bottom: 1px solid #eee;
+        }
+
+        .search-item:hover {
+            background-color: #f0f0f0;
+        }
+
+        .np-select-input-option-content-icon img {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+        }
+
+        .search-item.hidden {
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
-    <header>
-  <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-    <header>
-        <nav>
-            <div class="np-flow-navigation">
-                <div class="np-flow-header">
-                    <div class="np-flow-header__left">
-                        <span aria-label="Sults" role="img" class="np-logo">
-                            imagem sults
-                        </span>
-                    </div>
-                    <div class="np-flow-header__right">
-                        <button type="button" class="np-close-button" aria-label="Fechar">
-                            <span class="tw-icon tw-icon-cross" aria-hidden="true" role="none" data-testid="cross-icon">
-                                <svg width="24" height="24" fill="currentColor" focusable="false" viewBox="0 0 24 24">
-                                    <path d="M19.629 5.915l-1.2-1.2-6.257 6.257-6.258-6.257-1.2 1.2 6.258 6.257-6.258 6.257 1.2 1.2 6.258-6.257 6.257 6.257 1.2-1.2-6.258-6.257 6.258-6.257Z"></path>
-                                </svg>
-                            </span>
-                        </button>
-                    </div>
+    <div class="search-select">
+        <div class="search-input">
+            <input type="text" id="search-input" placeholder="Selecione um estado" readonly />
+            <button class="search-button" aria-label="Exibir lista">
+                <i class="fas fa-angle-down"></i>
+            </button>
+        </div>
+        <div class="search-list">
+            <input type="text" class="search-input" placeholder="Pesquisar estado" oninput="filterFunction()">
+            <div class="search-item" onclick="selectItem('Acre', 'https://wise.com/web-art/assets/flags/br.svg')">
+                <div class="np-select-input-option-content-icon">
+                    <img src="https://wise.com/web-art/assets/flags/br.svg" alt="Acre" />
                 </div>
+                <span>Acre</span>
             </div>
-        </nav>
-    </header>
-
-    <main class="tw-flow">
-        <section class="tw-flow__main">
-            <div class="tw-flow__steps container">
-                <div class="m-b-3 m-t-5">
-                    <button class="btn btn-md np-btn np-btn-md btn-accent btn-priority-3 d-flex hidden-xs" type="button" aria-live="off">
-                        <span class="d-flex">
-                            <span class="tw-icon tw-icon-arrow-left" aria-hidden="true" role="none" data-testid="arrow-left-icon">
-                                <svg width="16" height="16" fill="currentColor" focusable="false" viewBox="0 0 24 24">
-                                    <path d="M22.286 11.316H4.629l7.114-7.114-1.2-1.2-8.572 8.571a.829.829 0 0 0 0 1.2l8.572 8.572 1.2-1.2-7.114-7.114h17.657v-1.715Z"></path>
-                                </svg>
-                            </span>
-                            <span class="m-l-1">Voltar</span>
-                        </span>
-                    </button>
-                    <div class="text-xs-center">
-                        <h1 class="h2 m-t-2">Que tipo de conta você gostaria de abrir hoje?</h1>
-                        <p class="m-b-5">Você também pode adicionar outra conta mais tarde.</p>
-                        <div class="content-wrapper">
-                            <div class="np-decision d-flex">
-                                <button class="decision flex-column np-tile text-no-decoration text-xs-center np-decision__tile p-a-3">
-                                    <div class="np-tile__media d-flex justify-content-center">
-                                        <picture>
-                                            <source width="200" height="200" media="(max-width: 575px)" srcset="https://wise.com/web-art/assets/illustrations/house-small@1x.webp, https://wise.com/web-art/assets/illustrations/house-small@2x.webp 2x">
-                                            <img alt="" data-testid="wds-house-illustration" class="wds-illustration wds-illustration-house wds-illustration-padding" loading="eager" src="https://wise.com/web-art/assets/illustrations/house-medium@1x.webp" srcset="https://wise.com/web-art/assets/illustrations/house-medium@2x.webp 2x" width="300" height="300">
-                                        </picture>
-                                    </div>
-                                    <h3 class="np-text-title-subsection m-t-2">Conta Pessoal</h3>
-                                    <span class="np-text-body-default m-t-1">Envie, pague e receba no mundo todo gastando menos.</span>
-                                </button>
-                                <button class="decision flex-column np-tile text-no-decoration text-xs-center np-decision__tile p-a-3">
-                                    <div class="np-tile__media d-flex justify-content-center">
-                                        <picture>
-                                            <source width="200" height="200" media="(max-width: 575px)" srcset="https://wise.com/web-art/assets/illustrations/briefcase-small@1x.webp, https://wise.com/web-art/assets/illustrations/briefcase-small@2x.webp 2x">
-                                            <img alt="" data-testid="wds-briefcase-illustration" class="wds-illustration wds-illustration-briefcase wds-illustration-padding" loading="eager" src="https://wise.com/web-art/assets/illustrations/briefcase-medium@1x.webp" srcset="https://wise.com/web-art/assets/illustrations/briefcase-medium@2x.webp 2x" width="300" height="300">
-                                        </picture>
-                                    </div>
-                                    <h3 class="np-text-title-subsection m-t-2">Conta Empresarial</h3>
-                                    <span class="np-text-body-default m-t-1">Faça negócios ou preste serviços autônomos internacionalmente.</span>
-                                </button>
-                            </div>
-                            <p class="SelectAccountType_acceptable-use-policy__E7Muj">
-                                Você deve usar a Wise de acordo com a nossa 
-                                <a href="https://wise.com/acceptable-use-policy" target="_blank" class="np-link d-inline-flex" rel="noreferrer">
-                                    Política de Uso Aceitável 
-                                    <span class="tw-icon tw-icon-navigate-away" data-testid="navigate-away-icon">
-                                        <svg width="16" height="16" fill="currentColor" focusable="false" viewBox="0 0 24 24">
-                                            <path fill-rule="evenodd" d="M12.857 1.287h8.571a.86.86 0 0 1 .857.857v8.572h-1.714V4.2l-9.428 9.429-1.2-1.2 9.428-9.429h-6.514V1.287ZM3.429 20.998H18v-6h1.714v6.857a.86.86 0 0 1-.857.858H2.572a.86.86 0 0 1-.858-.858V4.713a.86.86 0 0 1 .857-.858h6V5.57H3.43v15.428Z" clip-rule="evenodd"></path>
-                                        </svg>
-                                        <span class="sr-only">(abre em uma nova aba)</span>
-                                    </span>
-                                </a>. 
-                                Você não pode usar uma conta pessoal para fins comerciais.
-                            </p>
-                        </div>
-                    </div>
+            <div class="search-item" onclick="selectItem('Alagoas', 'https://wise.com/web-art/assets/flags/br.svg')">
+                <div class="np-select-input-option-content-icon">
+                    <img src="https://wise.com/web-art/assets/flags/br.svg" alt="Alagoas" />
                 </div>
+                <span>Alagoas</span>
             </div>
-        </section>
-    </main>
-    <script src="script.js"></script>
+            <div class="search-item" onclick="selectItem('Amapá', 'https://wise.com/web-art/assets/flags/br.svg')">
+                <div class="np-select-input-option-content-icon">
+                    <img src="https://wise.com/web-art/assets/flags/br.svg" alt="Amapá" />
+                </div>
+                <span>Amapá</span>
+            </div>
+            <div class="search-item" onclick="selectItem('Amazonas', 'https://wise.com/web-art/assets/flags/br.svg')">
+                <div class="np-select-input-option-content-icon">
+                    <img src="https://wise.com/web-art/assets/flags/br.svg" alt="Amazonas" />
+                </div>
+                <span>Amazonas</span>
+            </div>
+            <!-- Adicione outros itens com suas imagens aqui -->
+        </div>
+    </div>
+
+    <script>
+        function filterFunction() {
+            const searchInput = document.querySelector('.search-input');
+            const filter = searchInput.value.toLowerCase();
+            const items = document.querySelectorAll('.search-list .search-item');
+
+            items.forEach(item => {
+                const text = item.textContent || item.innerText;
+                if (text.toLowerCase().indexOf(filter) > -1) {
+                    item.classList.remove('hidden');
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+        }
+
+        function selectItem(value, imgSrc) {
+            const searchInput = document.querySelector('#search-input');
+            searchInput.value = value;
+
+            // Fechar a lista após a seleção
+            document.querySelector('.search-list').style.display = 'none';
+        }
+
+        document.querySelector('.search-button').addEventListener('click', () => {
+            const list = document.querySelector('.search-list');
+            list.style.display = list.style.display === 'block' ? 'none' : 'block';
+        });
+
+        // Fechar a lista ao clicar fora
+        document.addEventListener('click', (event) => {
+            const select = document.querySelector('.search-select');
+            if (!select.contains(event.target)) {
+                document.querySelector('.search-list').style.display = 'none';
+            }
+        });
+    </script>
 </body>
 
-</html>
-
-
-    </main>
-</body>
-    <script src="script.js"></script>
 </html>

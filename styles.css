@@ -2,7 +2,7 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    /* background-color: #f4f4f4; */
     font-family: Arial, sans-serif;
 }
 
@@ -11,7 +11,7 @@ input {
     cursor: pointer;
 }
 
-.form-title, p, .progressbar li {
+.form-title, .step-content p, .title, .progressbar li {
     text-align: center; 
 }
 
@@ -62,7 +62,7 @@ a {
 /* BARRA DE PROGRESSO */
 .progressbar {
     width: 70%;
-    display: flex;
+    display: none; /*ALTERAR*/
     position: relative;
 }
 
@@ -123,7 +123,7 @@ a {
 }
 
 #ct-form{
-    display: flex; 
+    display: none; 
     padding: 2rem 1.5rem; 
     justify-content: center;
 }
@@ -139,12 +139,12 @@ a {
     text-align: start !important;
 }
 
-.form-title {
+.title h1 {
     font-size: 24px;
     margin: 0 0 1rem;
 }
 
-.form-subtitle {
+.title p {
     font-size: 16px;
     margin: 0.5rem 0 2.5rem;
 }
@@ -157,7 +157,7 @@ a {
     margin-top: 0.5rem;
     box-sizing: border-box;
     border: 2px solid #c9cbce;
-    background-color: #f4f4f4;
+    /* background-color: #f4f4f4; */
 }
 
 .form-input:hover{
@@ -281,11 +281,11 @@ a {
 
 /**back button*/
 .back-button {
-    left: -10%;
+    /* left: -10%; */
     top: 25px;
     height: 30px;
     border: none;
-    width: 30%;
+    width: 180px;
     font-size: 16px;
     font-weight: 600;
     background: none;
@@ -313,8 +313,8 @@ a {
     border: none;
     width: 100%;
     padding: 24px;
-    border-radius: 10px;
     max-width: 300px;
+    border-radius: 10px;
     background-color: #16330014; 
 }
 
@@ -342,9 +342,10 @@ a {
 }
 
 .termos {
-    width: 65%;
+    width: 55%;
     padding: 0;
     border-top: none;
+    text-align: center;
     margin: 20px auto 0;
 }
 
@@ -355,29 +356,183 @@ p {
 
 /* ACCOUNT SELECTION */
 #account-selection-section {
-    display: flex;
-    padding: 0 32px 0 32px;
+    display: none; /*ALTERAR*/
     justify-content: center; 
-    margin: 0 102px 0 102px;
+}
+
+.step-content {
+    padding: 0 32px 0 32px;
+    margin: 0 auto 0 auto;
+}
+
+.step-content-mobile {
+    display: none;
 }
 
 /*RESPONSIVIDADE SEGUNDA PAGINA*/
 @media (max-width:990px) {
     .back-button-text {
         display: none;
-       
-    }
-
-    .back-button {
-        width: 10px;
     }
 }
 
 @media (max-width:575px) {
-    .account-options{
+    .step-content, .back-button {
         display: none;
     }
+
+    .step-content-mobile {
+        display: block;
+    }
+
+    #ct-form, .step-content-mobile, .gp-form, .options{
+        padding: 0;
+    }
+
+    .gp-main {
+        padding: 0 16px;
+    }
+
+    section {
+        padding: 0 8px;
+    }
+
+    .termos {
+       width: 100%;
+    }
+
 }
 
+.options {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #ccc;
+}
 
-/* <div class="content-wrapper"><div class="np-decision d-flex flex-column"><button class="np-option np-navigation-option decision np-option__sm-media"><div class="media"><div class="media-left"><div class="circle circle-sm text-primary circle-inverse"><span class="tw-icon tw-icon-person SelectAccountType_select-account-type__img__0bqmt" aria-hidden="true" role="none" data-testid="person-icon"><svg width="24" height="24" fill="currentColor" focusable="false" viewBox="0 0 24 24"><path d="M15.257 14.014A5.922 5.922 0 0 0 18 9c0-3.3-2.7-6-6-6S6 5.7 6 9c0 2.1 1.071 3.943 2.743 5.014-2.614 1.243-4.457 3.9-4.457 6.986H6c0-3.3 2.7-6 6-6s6 2.7 6 6h1.714c0-3.086-1.842-5.743-4.457-6.986ZM7.714 9A4.298 4.298 0 0 1 12 4.714 4.298 4.298 0 0 1 16.286 9 4.298 4.298 0 0 1 12 13.286 4.298 4.298 0 0 1 7.714 9Z"></path></svg></span></div></div><div class="media-body"><h4 class="np-text-body-large-bold text-primary np-option__title">Conta Pessoal</h4><div class="np-text-body-default d-block np-option__body">Envie, pague e receba no mundo todo gastando menos.</div></div><div class="media-right"><span class="tw-icon tw-icon-chevron-up tw-chevron chevron-color right d-block" aria-hidden="true" role="none" data-testid="chevron-up-icon"><svg width="16" height="16" fill="currentColor" focusable="false" viewBox="0 0 24 24"><path d="M12.771 7.115a.829.829 0 0 0-1.2 0L3 15.686l1.2 1.2 7.971-7.971 7.972 7.971 1.2-1.2-8.572-8.571Z"></path></svg></span></div></div></button><button class="np-option np-navigation-option decision np-option__sm-media"><div class="media"><div class="media-left"><div class="circle circle-sm text-primary circle-inverse"><span class="tw-icon tw-icon-briefcase SelectAccountType_select-account-type__img__0bqmt" aria-hidden="true" role="none" data-testid="briefcase-icon"><svg width="24" height="24" fill="currentColor" focusable="false" viewBox="0 0 24 24"><path d="M21.428 6.429H18V3.857A.86.86 0 0 0 17.143 3H6.857A.86.86 0 0 0 6 3.857V6.43H2.571a.86.86 0 0 0-.857.857v12.857a.86.86 0 0 0 .857.857h18.857a.86.86 0 0 0 .858-.857V7.286a.86.86 0 0 0-.858-.857ZM7.714 4.714h8.572V6.43H7.714V4.714Zm8.572 3.429v11.143H7.714V8.143h8.572Zm-12.857 0H6v11.143H3.429V8.143ZM20.57 19.286H18V8.143h2.571v11.143Z"></path></svg></span></div></div><div class="media-body"><h4 class="np-text-body-large-bold text-primary np-option__title">Conta Empresarial</h4><div class="np-text-body-default d-block np-option__body">Faça negócios ou preste serviços autônomos internacionalmente.</div></div><div class="media-right"><span class="tw-icon tw-icon-chevron-up tw-chevron chevron-color right d-block" aria-hidden="true" role="none" data-testid="chevron-up-icon"><svg width="16" height="16" fill="currentColor" focusable="false" viewBox="0 0 24 24"><path d="M12.771 7.115a.829.829 0 0 0-1.2 0L3 15.686l1.2 1.2 7.971-7.971 7.972 7.971 1.2-1.2-8.572-8.571Z"></path></svg></span></div></div></button></div><p class="SelectAccountType_acceptable-use-policy__E7Muj">Você deve usar a Wise de acordo com a nossa <a href="https://wise.com/acceptable-use-policy" target="_blank" class="np-link d-inline-flex" rel="noreferrer">Política de Uso Aceitável <span class="tw-icon tw-icon-navigate-away " data-testid="navigate-away-icon"><svg width="16" height="16" fill="currentColor" focusable="false" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12.857 1.287h8.571a.86.86 0 0 1 .857.857v8.572h-1.714V4.2l-9.428 9.429-1.2-1.2 9.428-9.429h-6.514V1.287ZM3.429 20.998H18v-6h1.714v6.857a.86.86 0 0 1-.857.858H2.572a.86.86 0 0 1-.858-.858V4.713a.86.86 0 0 1 .857-.858h6V5.57H3.43v15.428Z" clip-rule="evenodd"></path></svg><span class="sr-only">(abre em uma nova aba)</span></span></a>. Você não pode usar uma conta pessoal para fins comerciais.</p></div> */
+.option {
+    border: none;
+    padding: 16px;
+    background: none;
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+    padding-right: 16px;
+}
+
+.icon span {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    line-height: 48px;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    background-color: #16330014;
+}
+.icon-text {
+    display: flex;
+    text-align: start;
+}
+
+.arrow {
+    display: flex;
+    padding-left: 16px;
+    align-items: center;
+    justify-content: center; 
+    transform: rotate(90deg);
+}
+
+.text p, .text h4 {
+    margin: 0;
+}
+
+.text p {
+    margin-bottom: 4px;
+}
+
+/*SEARCH*/
+body {
+    font-family: Arial, sans-serif;
+}
+
+.search-select {
+    position: relative;
+    display: inline-block;
+    max-width: 400px;
+    min-width: 100px;
+}
+
+.search-input {
+    position: relative;
+}
+
+.search-input input {
+    padding-right: 30px;
+    width: 100%;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.search-button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.search-button i {
+    font-size: 1.2em;
+}
+
+.search-list {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    border: 1px solid #ccc;
+    width: 100%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1;
+}
+
+.search-select:focus-within .search-list {
+    display: block;
+}
+
+.search-input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+}
+
+.search-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+}
+
+.search-item:hover {
+    background-color: #f0f0f0;
+}
+
+.np-select-input-option-content-icon img {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+.search-item.hidden {
+    display: none;
+}
