@@ -282,8 +282,10 @@ a {
 /**back button*/
 .back-button {
     left: -10%;
-    min-height: 0;
+    top: 25px;
+    height: 30px;
     border: none;
+    width: 30%;
     font-size: 16px;
     font-weight: 600;
     background: none;
@@ -295,6 +297,11 @@ a {
     justify-content: center;
     text-decoration: underline;
     text-underline-offset: .3em;
+}
+ 
+.back-button:focus {
+    border-radius: 20px;
+    background-color: #16330021;
 }
 
 /*account-option*/
@@ -335,9 +342,8 @@ a {
 }
 
 .termos {
-    width: 85%;
+    width: 65%;
     padding: 0;
-    position: static;
     border-top: none;
     margin: 20px auto 0;
 }
@@ -347,25 +353,31 @@ p {
     color: rgb(69, 71, 69);
 }
 
-/*RESPONSIVIDADE SEGUNDA PAGINA*/
-/* @media (max-width:900px) {
-    .back-button-text {
-        display: none;
-    }
-} */
-
 /* ACCOUNT SELECTION */
 #account-selection-section {
     display: flex;
+    padding: 0 32px 0 32px;
     justify-content: center; 
-    padding: 2rem 1.5rem; 
+    margin: 0 102px 0 102px;
 }
 
-.ct-account-selection {
-    width: 1100px; 
+/*RESPONSIVIDADE SEGUNDA PAGINA*/
+@media (max-width:990px) {
+    .back-button-text {
+        display: none;
+       
+    }
+
+    .back-button {
+        width: 10px;
+    }
 }
 
-.step-content {
-    max-width: 700px; 
-    margin: 0 auto; 
+@media (max-width:575px) {
+    .account-options{
+        display: none;
+    }
 }
+
+
+/* <div class="content-wrapper"><div class="np-decision d-flex flex-column"><button class="np-option np-navigation-option decision np-option__sm-media"><div class="media"><div class="media-left"><div class="circle circle-sm text-primary circle-inverse"><span class="tw-icon tw-icon-person SelectAccountType_select-account-type__img__0bqmt" aria-hidden="true" role="none" data-testid="person-icon"><svg width="24" height="24" fill="currentColor" focusable="false" viewBox="0 0 24 24"><path d="M15.257 14.014A5.922 5.922 0 0 0 18 9c0-3.3-2.7-6-6-6S6 5.7 6 9c0 2.1 1.071 3.943 2.743 5.014-2.614 1.243-4.457 3.9-4.457 6.986H6c0-3.3 2.7-6 6-6s6 2.7 6 6h1.714c0-3.086-1.842-5.743-4.457-6.986ZM7.714 9A4.298 4.298 0 0 1 12 4.714 4.298 4.298 0 0 1 16.286 9 4.298 4.298 0 0 1 12 13.286 4.298 4.298 0 0 1 7.714 9Z"></path></svg></span></div></div><div class="media-body"><h4 class="np-text-body-large-bold text-primary np-option__title">Conta Pessoal</h4><div class="np-text-body-default d-block np-option__body">Envie, pague e receba no mundo todo gastando menos.</div></div><div class="media-right"><span class="tw-icon tw-icon-chevron-up tw-chevron chevron-color right d-block" aria-hidden="true" role="none" data-testid="chevron-up-icon"><svg width="16" height="16" fill="currentColor" focusable="false" viewBox="0 0 24 24"><path d="M12.771 7.115a.829.829 0 0 0-1.2 0L3 15.686l1.2 1.2 7.971-7.971 7.972 7.971 1.2-1.2-8.572-8.571Z"></path></svg></span></div></div></button><button class="np-option np-navigation-option decision np-option__sm-media"><div class="media"><div class="media-left"><div class="circle circle-sm text-primary circle-inverse"><span class="tw-icon tw-icon-briefcase SelectAccountType_select-account-type__img__0bqmt" aria-hidden="true" role="none" data-testid="briefcase-icon"><svg width="24" height="24" fill="currentColor" focusable="false" viewBox="0 0 24 24"><path d="M21.428 6.429H18V3.857A.86.86 0 0 0 17.143 3H6.857A.86.86 0 0 0 6 3.857V6.43H2.571a.86.86 0 0 0-.857.857v12.857a.86.86 0 0 0 .857.857h18.857a.86.86 0 0 0 .858-.857V7.286a.86.86 0 0 0-.858-.857ZM7.714 4.714h8.572V6.43H7.714V4.714Zm8.572 3.429v11.143H7.714V8.143h8.572Zm-12.857 0H6v11.143H3.429V8.143ZM20.57 19.286H18V8.143h2.571v11.143Z"></path></svg></span></div></div><div class="media-body"><h4 class="np-text-body-large-bold text-primary np-option__title">Conta Empresarial</h4><div class="np-text-body-default d-block np-option__body">Faça negócios ou preste serviços autônomos internacionalmente.</div></div><div class="media-right"><span class="tw-icon tw-icon-chevron-up tw-chevron chevron-color right d-block" aria-hidden="true" role="none" data-testid="chevron-up-icon"><svg width="16" height="16" fill="currentColor" focusable="false" viewBox="0 0 24 24"><path d="M12.771 7.115a.829.829 0 0 0-1.2 0L3 15.686l1.2 1.2 7.971-7.971 7.972 7.971 1.2-1.2-8.572-8.571Z"></path></svg></span></div></div></button></div><p class="SelectAccountType_acceptable-use-policy__E7Muj">Você deve usar a Wise de acordo com a nossa <a href="https://wise.com/acceptable-use-policy" target="_blank" class="np-link d-inline-flex" rel="noreferrer">Política de Uso Aceitável <span class="tw-icon tw-icon-navigate-away " data-testid="navigate-away-icon"><svg width="16" height="16" fill="currentColor" focusable="false" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12.857 1.287h8.571a.86.86 0 0 1 .857.857v8.572h-1.714V4.2l-9.428 9.429-1.2-1.2 9.428-9.429h-6.514V1.287ZM3.429 20.998H18v-6h1.714v6.857a.86.86 0 0 1-.857.858H2.572a.86.86 0 0 1-.858-.858V4.713a.86.86 0 0 1 .857-.858h6V5.57H3.43v15.428Z" clip-rule="evenodd"></path></svg><span class="sr-only">(abre em uma nova aba)</span></span></a>. Você não pode usar uma conta pessoal para fins comerciais.</p></div> */

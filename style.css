@@ -322,3 +322,55 @@ background-color: #3b5998;
 .social-login a:hover {
     text-decoration: underline;
 }
+
+.FlowWrapper_logged-out-flow__4t8Vg .container {
+    position: relative;
+}
+
+.Container_flow-step__back-button___yWJt>span {
+    width: 95px;
+    align-items: center;
+}
+
+@media (min-width: 992px) {
+    .col-lg-offset-2 {
+        margin-left: 16.66666667%;
+    }
+}
+
+@media (min-width: 992px) {
+    .col-lg-8 {
+        width: 66.66666667%;
+    }
+}
+
+.text-xs-center {
+    text-align: center;
+}
+
+*, :after, :before {
+    box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+    .SelectAccountType_acceptable-use-policy__E7Muj {
+        max-width: 522px;
+        margin: 50px auto 0;
+        position: static;
+        padding: 0;
+        border-top: none;
+    }
+}
+
+.np-theme-personal .btn-accent:not(.disabled):not(:disabled).btn-priority-3, .np-theme-personal .btn-link {
+    color: var(--color-interactive-primary);
+    border-color: transparent;
+    -webkit-text-decoration: underline;
+    text-decoration: underline;
+    text-underline-offset: .3em;
+}
+
+.Container_flow-step__back-button___yWJt>span {
+    width: 95px;
+    align-items: center;
+}

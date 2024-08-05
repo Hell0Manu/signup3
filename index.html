@@ -10,72 +10,104 @@
 
 <body>
     <header>
+  <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
         <nav>
             <div class="np-flow-navigation">
                 <div class="np-flow-header">
                     <div class="np-flow-header__left">
                         <span aria-label="Sults" role="img" class="np-logo">
                             imagem sults
-
                         </span>
                     </div>
                     <div class="np-flow-header__right">
                         <button type="button" class="np-close-button" aria-label="Fechar">
                             <span class="tw-icon tw-icon-cross" aria-hidden="true" role="none" data-testid="cross-icon">
                                 <svg width="24" height="24" fill="currentColor" focusable="false" viewBox="0 0 24 24">
-                                    <path
-                                        d="m19.629 5.915-1.2-1.2-6.257 6.257-6.258-6.257-1.2 1.2 6.258 6.257-6.258 6.257 1.2 1.2 6.258-6.257 6.257 6.257 1.2-1.2-6.258-6.257 6.258-6.257Z">
-                                    </path>
+                                    <path d="M19.629 5.915l-1.2-1.2-6.257 6.257-6.258-6.257-1.2 1.2 6.258 6.257-6.258 6.257 1.2 1.2 6.258-6.257 6.257 6.257 1.2-1.2-6.258-6.257 6.258-6.257Z"></path>
                                 </svg>
                             </span>
                         </button>
                     </div>
-                    <!-- Progress -->
-                  
                 </div>
             </div>
         </nav>
     </header>
+
     <main class="tw-flow">
         <section class="tw-flow__main">
-            <div class="tw-flow__steps">
-                <div class="tw-flow__step container">
-                    <div class="step-content">
-                        <div class="form-container">
-                            <div class="form-header">
-                                <h1 class="form-title">Crie sua conta SULTS grátis
-                                </h1>
-                                <!-- <p class="form-subtitle">Já possui uma conta? <a href="/login">Entrar</a></p> -->
-                                <form action="#" method="post">
-                                    <div class="g-recaptcha" data-sitekey="6LeBJjUaAAAAAGlzJOGn0p5Y4r7xIGSzSKFm0ZYJ"
-                                        data-callback="reCaptchaV2Callback"
-                                        data-error-callback="reCaptchaV2ErrorCallback" data-size="invisible"></div>
-                                    <label for="email">Primeiro, insira o seu nome</label>
-                                    <input id="email" name="email" autocomplete="email" type="email" class="form-input"
-                                        title="Primeiro, insira o seu endereço de e-mail"
-                                        aria-label="Primeiro, insira o seu endereço de e-mail" value="">
-                                    <button class="btn-submit" type="submit" aria-live="off">Próximo</button>
-                                </form>
-                                <div class="social-login">
-                                    <p>Ou entre com</p>
-                                    <div class="social-buttons">
-                                        <button type="button" class="social-button google"
-                                            aria-label="Entrar com Google"></button>
-                                        <button type="button" class="social-button facebook"
-                                            aria-label="Entrar com Facebook"></button>
-                                        <button type="button" class="social-button apple"
-                                            aria-label="Entrar com Apple"></button>
+            <div class="tw-flow__steps container">
+                <div class="m-b-3 m-t-5">
+                    <button class="btn btn-md np-btn np-btn-md btn-accent btn-priority-3 d-flex hidden-xs" type="button" aria-live="off">
+                        <span class="d-flex">
+                            <span class="tw-icon tw-icon-arrow-left" aria-hidden="true" role="none" data-testid="arrow-left-icon">
+                                <svg width="16" height="16" fill="currentColor" focusable="false" viewBox="0 0 24 24">
+                                    <path d="M22.286 11.316H4.629l7.114-7.114-1.2-1.2-8.572 8.571a.829.829 0 0 0 0 1.2l8.572 8.572 1.2-1.2-7.114-7.114h17.657v-1.715Z"></path>
+                                </svg>
+                            </span>
+                            <span class="m-l-1">Voltar</span>
+                        </span>
+                    </button>
+                    <div class="text-xs-center">
+                        <h1 class="h2 m-t-2">Que tipo de conta você gostaria de abrir hoje?</h1>
+                        <p class="m-b-5">Você também pode adicionar outra conta mais tarde.</p>
+                        <div class="content-wrapper">
+                            <div class="np-decision d-flex">
+                                <button class="decision flex-column np-tile text-no-decoration text-xs-center np-decision__tile p-a-3">
+                                    <div class="np-tile__media d-flex justify-content-center">
+                                        <picture>
+                                            <source width="200" height="200" media="(max-width: 575px)" srcset="https://wise.com/web-art/assets/illustrations/house-small@1x.webp, https://wise.com/web-art/assets/illustrations/house-small@2x.webp 2x">
+                                            <img alt="" data-testid="wds-house-illustration" class="wds-illustration wds-illustration-house wds-illustration-padding" loading="eager" src="https://wise.com/web-art/assets/illustrations/house-medium@1x.webp" srcset="https://wise.com/web-art/assets/illustrations/house-medium@2x.webp 2x" width="300" height="300">
+                                        </picture>
                                     </div>
-                                </div>
-                                <p>Ao se cadastrar, você aceita os nossos <a target="_blank"
-                                        href="/terms-and-conditions">Termos de Uso</a> e a nossa <a target="_blank"
-                                        href="/privacy-policy">Política de Privacidade</a>.</p>
+                                    <h3 class="np-text-title-subsection m-t-2">Conta Pessoal</h3>
+                                    <span class="np-text-body-default m-t-1">Envie, pague e receba no mundo todo gastando menos.</span>
+                                </button>
+                                <button class="decision flex-column np-tile text-no-decoration text-xs-center np-decision__tile p-a-3">
+                                    <div class="np-tile__media d-flex justify-content-center">
+                                        <picture>
+                                            <source width="200" height="200" media="(max-width: 575px)" srcset="https://wise.com/web-art/assets/illustrations/briefcase-small@1x.webp, https://wise.com/web-art/assets/illustrations/briefcase-small@2x.webp 2x">
+                                            <img alt="" data-testid="wds-briefcase-illustration" class="wds-illustration wds-illustration-briefcase wds-illustration-padding" loading="eager" src="https://wise.com/web-art/assets/illustrations/briefcase-medium@1x.webp" srcset="https://wise.com/web-art/assets/illustrations/briefcase-medium@2x.webp 2x" width="300" height="300">
+                                        </picture>
+                                    </div>
+                                    <h3 class="np-text-title-subsection m-t-2">Conta Empresarial</h3>
+                                    <span class="np-text-body-default m-t-1">Faça negócios ou preste serviços autônomos internacionalmente.</span>
+                                </button>
                             </div>
+                            <p class="SelectAccountType_acceptable-use-policy__E7Muj">
+                                Você deve usar a Wise de acordo com a nossa 
+                                <a href="https://wise.com/acceptable-use-policy" target="_blank" class="np-link d-inline-flex" rel="noreferrer">
+                                    Política de Uso Aceitável 
+                                    <span class="tw-icon tw-icon-navigate-away" data-testid="navigate-away-icon">
+                                        <svg width="16" height="16" fill="currentColor" focusable="false" viewBox="0 0 24 24">
+                                            <path fill-rule="evenodd" d="M12.857 1.287h8.571a.86.86 0 0 1 .857.857v8.572h-1.714V4.2l-9.428 9.429-1.2-1.2 9.428-9.429h-6.514V1.287ZM3.429 20.998H18v-6h1.714v6.857a.86.86 0 0 1-.857.858H2.572a.86.86 0 0 1-.858-.858V4.713a.86.86 0 0 1 .857-.858h6V5.57H3.43v15.428Z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        <span class="sr-only">(abre em uma nova aba)</span>
+                                    </span>
+                                </a>. 
+                                Você não pode usar uma conta pessoal para fins comerciais.
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+
+</html>
+
 
     </main>
 </body>
