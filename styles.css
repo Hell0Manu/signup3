@@ -62,7 +62,7 @@ a {
 /* BARRA DE PROGRESSO */
 .progressbar {
     width: 70%;
-    display: flex; /*ALTERAR*/
+    display: none; /*ALTERAR*/
     position: relative;
 }
 
@@ -268,7 +268,7 @@ a {
 }
 
 .login-error-message {
-    display: flex;
+    display: none;
     
 }
 
@@ -357,7 +357,7 @@ p {
 
 /* ACCOUNT SELECTION */
 #account-selection-section {
-    display: none; /*ALTERAR*/
+    display:none; /*ALTERAR*/
     justify-content: center; 
 }
 
@@ -483,4 +483,8 @@ p {
 .states-number{
     font-size: 14px;
     color: #5d7079;
+}
+
+#number, #ct-nome {
+    display: none; /*ALTERAR*/
 }

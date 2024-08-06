@@ -1,54 +1,54 @@
-// Definir elementos do DOM
-const form = document.getElementById("formInitial");
-const emailInput = document.getElementById("email");
-const warning = document.querySelector(".alert-error-email");
-const errorEmail = document.getElementById("error-email");
-const phoneInput = document.getElementById("phone");
-const errorPhone = document.getElementById("error-phone");
-
-// Adicionar máscara ao telefone
-phoneInput.addEventListener('input', function() {
-    applyPhoneMask(phoneInput);
-});
-
-form.addEventListener('submit', RegisterFormSubmit);
-
+//Recebe os dados do formulario e chama e recebe o resultado da validção 
 function RegisterFormSubmit(event) {
     event.preventDefault();
 
-    const phone = phoneInput.value;
-    const email = emailInput.value;
+    let 
+    // name = document.querySelector("#name").value, 
+    // company = document.querySelector("#company").value, 
+    // phone = document.querySelector("#phone").value,
+    email = document.querySelector("#email").value;
 
-    if (!validateForm(phone, email)) {
+    //se retornar falso a validação falhou e isso inpedira do cosigo abaixo ser executado 
+    if(!validateForm(name, company, email, phone))
         return;
-    }
 
+    //Carregamento
     document.querySelector(".spinner").style.display = "inline-block";
-
-    // Simule valores para name e company ou adicione campos ao formulário
-    sendAsgard("Nome do Usuário", "Nome da Empresa", email, phone);
+   
+    //envia os dados 
+    sendAsgard(name, company, email, phone);
+// Adicionado para depuração
 }
 
-function sendAsgard(name, company, email, phone) {
+//Apos validação dos dados faz a criação da conta e manda um negocio para o funil 
+function sendAsgard(name, company, email, phone) 
+{
     let a = new XMLHttpRequest();
-    a.withCredentials = false;
-    a.open("POST", "https://3sksqeptx3.aexecute-api.us-east-1.amazonaws.com/prod/site/request-demo");
-    a.setRequestHeader("Content-Type", "application/json");
-    a.onload = function () {
-        if (a.status === 200) {
+    (a.withCredentials = !1), 
+    a.open("POST",   "https://3sksqeptx3.execute-apia.us-east-1.amazonaws.com/prod/site/request-demo"),
+    a.setRequestHeader("Content-Type", "application/json"),(a.onload = function()
+    {
+        if(a.status === 200) 
+        {
             document.querySelector(".spinner").style.display = "none";
             document.querySelector(".conta-success-container").style.display = "flex";
             document.querySelector(".conta-register-container").style.display = "none";
             document.querySelector("#nameRegister").textContent = name.split(' ')[0] + ", verifique sua caixa de entrada no e-mail";
             document.querySelector("#emailRegister").textContent = email;
-            umami.track('Signup: Criação de conta');
-        } else {
+            unami.track('Signup: Criação de conta');
+        } else 
+        {
             document.getElementById("errorModal").style.display = "block";
-            umami.track('Erro ' + a.status + ': Criação de conta', {
-                Event: new Date().toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' })
+            unami.track('Erro ' + a.status + ': Criação de conta', 
+            {
+                Event: new Date().toLocaleString('pt-BR', 
+                {
+                    timeZone: 'America/Sao_Paulo'
+                })
             });
         }
-    };
+    });
+
     let r = {
         tituloNegocio: company + " - " + name,
         nome: name,
@@ -63,60 +63,64 @@ function sendAsgard(name, company, email, phone) {
     a.send(JSON.stringify(r));
 }
 
-function validateForm(phone, email, nome) {
+//Faz a validação dos campos do formulario
+function validateForm(name, company, email, phone) {
     let isValid = true;
-    clearErrors();
+    clearErrors(); 
 
-    if (phone === "") {
-        showError("error-phone", "Preenchimento do número de telefone obrigatório");
+    if(name === "") {
+        showError("error-name", "Nome: Preenchimento obrigatório");
         isValid = false;
-        phoneInput.style.border = '3px solid #a8200d';
+    }
 
+    if(company === "") {
+        showError("error-company", "Empresa: `Preenchimento obrigatório");
+        isValid = false; 
+    }
+
+    if(email === "") {
+        showError("error-email", "Email: Preenchimento obrigatório");
+        document.querySelector("#email").style.border = '3px solid #a8200d';
+        alert("erro")
+        isValid = false; 
     } else {
-        if (!validatePhone(phone)) {
-            showError("error-phone", "O telefone informado não é válido");
-            phoneInput.style.border = '3px solid #a8200d';
+        if(!validateEmail(email)) {
+            showError("error-email", "O e-mail informado não é valido");
+            document.querySelector("#email").style.border = '3px solid #a8200d';
             isValid = false;
+            alert("erro")
         }
     }
 
-    if (email === "" || !validateEmail(email)) {
-       
-        showError("error-email", "O email informado não é válido");
-        emailInput.style.border = '3px solid #a8200d';
+    if(phone === "") {
+        showError("error-phone", "Telefone: Preenchimento obrigatório");
         isValid = false;
+    } else {
+        if(!validatePhone(phone)) {
+            showError("error-phone", "O telefone informado não é valido");
+            isValid = false;
+        }
     }
-
-    if(nome === ""){
-        showError("error-nome", "O preenchimento do nome é obrigatorio");
-        isValid = false;
-    }
-
     return isValid;
 }
 
+//Validação do e-mail seguindo o regex fornecido 
 function validateEmail(email) {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return regex.test(email);
 }
 
+//Validação do phone seguindo o regex fornecido 
 function validatePhone(phone) {
     const regex = /^\(\d{2}\)\s?\d{4,5}-\d{4}$/;
     return regex.test(phone);
 }
 
-function showError(fieldId, message) {
-    warning.style.display = 'flex';
-    const errorDiv = document.getElementById(fieldId);
-
-    errorDiv.textContent = message;
-    errorDiv.style.display = "block";
-}
-
+//Aplica a mascara no numero de telefone
 function applyPhoneMask(element) {
-    let value = element.value;
-    value = value.replace(/\D/g, "");
-    if (value.length <= 11) {
+    let value = element.value; 
+    if(value.length <= 10) {
+        value = value.replace(/\D/g, "");
         value = value.replace(/^(\d{2})(\d)/g, "($1) $2");
         value = value.replace(/(\d{4})(\d)/, "$1-$2");
     } else {
@@ -126,31 +130,26 @@ function applyPhoneMask(element) {
     element.value = value;
 }
 
-function clearErrors() {
-    document.querySelectorAll(".login-error-message").forEach(function (error) {
-        error.textContent = "";
-        error.style.display = "none";
-    });
+
+//Mostra os erros
+function showError(fieldId, message) {
+    const errorDiv = document.getElementById(fieldId);
+    errorDiv.textContent = message;
+    errorDiv.style.display = "block";
 }
 
-document.getElementById("closeModalError").onclick = function () {
-    document.getElementById("errorModal").style.display = "none";
-};
+//Limpa os erros 
+function clearErrors() {
+    document.querySelectorAll(".login-error-message").forEach
+    (
+        function(error) 
+        {
+            error.textContent = "";
+            error.style.display = "none";
+        }
+    )
+}
 
-/* Preenchimento do select de UF */
-document.addEventListener('DOMContentLoaded', function() {
-    const jsonData = {
-        "UF": [
-            // Dados de UF
-        ]
-    };
-
-    const selectElement = document.getElementById('uf');
-
-    jsonData.UF.forEach(uf => {
-        const option = document.createElement('option');
-        option.value = uf.sigla;
-        option.textContent = `${uf.ddd} (${uf.sigla})`;
-        selectElement.appendChild(option);
-    });
-});
+// document.getElementById("closeModalError").onclick = function() {
+//     document.getElementById("errorModal").style.display = "none";
+// }
