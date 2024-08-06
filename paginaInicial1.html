@@ -5,8 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
     <title>Pagina inicial</title>
 </head>
 
@@ -40,7 +38,7 @@
     <main class="gp-main">
         <section id="ct-form">
             <div class="gp-form">
-                <div class="title"> 
+                <div class="title">
                     <h1>Crie sua conta SULTS grátis</h1>
                     <p>Já possui uma conta? <a href="/login">Entrar</a></p>
                 </div>
@@ -52,7 +50,7 @@
                         title="Primeiro, insira o seu endereço de e-mail"
                         aria-label="Primeiro, insira o seu endereço de e-mail" value>
 
-                    <div role="alert" class="alert-error-email">
+                    <div role="alert" class="login-error-message">
                         <span class="error-circle">
                             <span class="icon-error" aria-hidden="true" role="none">
                                 <svg width="16" height="16" fill="currentColor" focusable="false" viewBox="0 0 24 24">
@@ -81,6 +79,40 @@
                         href="/privacy-policy">Política de Privacidade</a>.
                 </p>
             </div>
+            </div>
+        </section>
+
+        <section id="">
+            <div class="center">
+                <div class="gp-form ">
+                    <div class="title">
+                        <h1>Crie sua conta SULTS grátis</h1>
+                    </div>
+                    <form id="formInitial">
+                        <label for="email">Informe seu nome</label>
+
+                        <input id="email" name="email" autocomplete="email" type="email" class="form-input"
+                            title="Primeiro, insira o seu endereço de e-mail"
+                            aria-label="Primeiro, insira o seu endereço de e-mail" value>
+
+                        <div role="alert" class="alert-error-email">
+                            <span class="error-circle">
+                                <span class="icon-error" aria-hidden="true" role="none">
+                                    <svg width="16" height="16" fill="currentColor" focusable="false"
+                                        viewBox="0 0 24 24">
+                                        <path
+                                            d="m19.629 5.915-1.2-1.2-6.257 6.257-6.258-6.257-1.2 1.2 6.258 6.257-6.258 6.257 1.2 1.2 6.258-6.257 6.257 6.257 1.2-1.2-6.258-6.257 6.258-6.257Z">
+                                        </path>
+                                    </svg></span>
+                            </span>
+                            <div id="error-nome" class="login-error-message">
+                                <p>Por favor, insira um endereço de e-mail
+                                    válido</p>
+                            </div>
+                        </div>
+                        <button class="btn-submit" type="submit" onclick="RegisterFormSubmit(event)">Continuar</button>
+                    </form>
+                </div>
             </div>
         </section>
 
@@ -220,51 +252,49 @@
         </section>
 
         <section>
-            <div class="step-container">
+            <div class=" center">
                 <div class="content">
                     <div class="title">
-                        <h1>Where do you live most of the time?</h1>
-                        <p>By law, we may need to ask for proof of your address.</p>
+                        <h1>Verifique o seu número de telefone com um código</h1>
+                        <p>Isso nos ajudará a entrar em contato
+                        </p>
                     </div>
-                    <div class="search-select">
-                        <div class="search-input">
-                            <input type="text" id="search-input" placeholder="Selecione um estado" readonly />
-                            <button class="search-button" aria-label="Exibir lista">
-                                <i class="fas fa-angle-down"></i>
-                            </button>
-                        </div>
-                        <div class="search-list">
-                            <input type="text" class="search-input" placeholder="Pesquisar estado" oninput="filterFunction()">
-                            <div class="search-item" onclick="selectItem('Acre', 'https://wise.com/web-art/assets/flags/br.svg')">
-                                <div class="np-select-input-option-content-icon">
-                                    <img src="https://wise.com/web-art/assets/flags/br.svg" alt="Acre" />
-                                </div>
-                                <span>Acre</span>
+                    <div class="">
+
+                        <form id="formInitial">
+                            <label for="phone-number" class="states-number">Número de telefone</label>
+                            <div class="inputPhone">
+                                <select name="uf" id="uf">
+                                    <option value="0">UF</option>
+                                </select>
+
+                                <input id="phone" name="phone" autocomplete="phone" type="phone" class="form-input"
+                                    title="Insira seu numero de telefone" aria-label="Insira seu numero de telefone"
+                                    value>
                             </div>
-                            <div class="search-item" onclick="selectItem('Alagoas', 'https://wise.com/web-art/assets/flags/br.svg')">
-                                <div class="np-select-input-option-content-icon">
-                                    <img src="https://wise.com/web-art/assets/flags/br.svg" alt="Alagoas" />
+
+
+                            <div role="alert" class="alert-error-email">
+                                <span class="error-circle">
+                                    <span class="icon-error" aria-hidden="true" role="none">
+                                        <svg width="16" height="16" fill="currentColor" focusable="false"
+                                            viewBox="0 0 24 24">
+                                            <path
+                                                d="m19.629 5.915-1.2-1.2-6.257 6.257-6.258-6.257-1.2 1.2 6.258 6.257-6.258 6.257 1.2 1.2 6.258-6.257 6.257 6.257 1.2-1.2-6.258-6.257 6.258-6.257Z">
+                                            </path>
+                                        </svg></span>
+                                </span>
+                                <div id="error-phone" class="login-error-message">
+                                    <p>Por favor, insira um endereço de e-mail
+                                        válido</p>
                                 </div>
-                                <span>Alagoas</span>
                             </div>
-                            <div class="search-item" onclick="selectItem('Amapá', 'https://wise.com/web-art/assets/flags/br.svg')">
-                                <div class="np-select-input-option-content-icon">
-                                    <img src="https://wise.com/web-art/assets/flags/br.svg" alt="Amapá" />
-                                </div>
-                                <span>Amapá</span>
-                            </div>
-                            <div class="search-item" onclick="selectItem('Amazonas', 'https://wise.com/web-art/assets/flags/br.svg')">
-                                <div class="np-select-input-option-content-icon">
-                                    <img src="https://wise.com/web-art/assets/flags/br.svg" alt="Amazonas" />
-                                </div>
-                                <span>Amazonas</span>
-                            </div>
-                            <!-- Adicione outros itens com suas imagens aqui -->
-                        </div>
+                            <button class="btn-submit" type="submit"
+                                onclick="RegisterFormSubmit(event)">Continuar</button>
+                        </form>
                     </div>
                 </div>
             </div>
-
         </section>
     </main>
     <script src="scripts.js"></script>

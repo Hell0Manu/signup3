@@ -7,7 +7,7 @@ body {
 }
 
 button, a,
-input {
+input, select {
     cursor: pointer;
 }
 
@@ -62,7 +62,7 @@ a {
 /* BARRA DE PROGRESSO */
 .progressbar {
     width: 70%;
-    display: none; /*ALTERAR*/
+    display: flex; /*ALTERAR*/
     position: relative;
 }
 
@@ -123,7 +123,7 @@ a {
 }
 
 #ct-form{
-    display: none; 
+    display: flex; 
     padding: 2rem 1.5rem; 
     justify-content: center;
 }
@@ -269,12 +269,13 @@ a {
 
 .login-error-message {
     display: flex;
-    color: #a8200d;
+    
 }
 
 .login-error-message p {
     margin: 0;
     font-size: 14px;
+    color: #a8200d;
 }
 
 /*====== SEGUNDA PAGINA ======*/
@@ -452,87 +453,34 @@ p {
     margin-bottom: 4px;
 }
 
-/*SEARCH*/
-body {
-    font-family: Arial, sans-serif;
+/*Input Phone*/
+#uf {
+    width: 88px;
+    height: 48px;
+    padding: 0 16px;
+    margin-top: 8px;
+    margin-right: 12px;
+    border-radius: 10px;
+    border: 2px solid #c9cbce;
 }
 
-.search-select {
-    position: relative;
-    display: inline-block;
-    max-width: 400px;
-    min-width: 100px;
-}
-
-.search-input {
-    position: relative;
-}
-
-.search-input input {
-    padding-right: 30px;
-    width: 100%;
-    box-sizing: border-box;
-    cursor: pointer;
-}
-
-.search-button {
-    position: absolute;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    border: none;
-    background: transparent;
-    cursor: pointer;
-}
-
-.search-button i {
-    font-size: 1.2em;
-}
-
-.search-list {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: white;
-    border: 1px solid #ccc;
-    width: 100%;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    max-height: 200px;
-    overflow-y: auto;
-    z-index: 1;
-}
-
-.search-select:focus-within .search-list {
-    display: block;
-}
-
-.search-input {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 10px;
-    border: none;
-    border-bottom: 1px solid #ccc;
-}
-
-.search-item {
+.inputPhone {
     display: flex;
-    align-items: center;
-    padding: 10px;
-    cursor: pointer;
-    border-bottom: 1px solid #eee;
 }
 
-.search-item:hover {
-    background-color: #f0f0f0;
+.center{
+    display: flex; 
+    padding: 2rem 1.5rem; 
+    justify-content: center;
 }
 
-.np-select-input-option-content-icon img {
-    width: 24px;
-    height: 24px;
-    margin-right: 10px;
+.button-input {
+    text-align: start;
+    border-radius: 10px; 
+    align-content: center;
 }
 
-.search-item.hidden {
-    display: none;
+.states-number{
+    font-size: 14px;
+    color: #5d7079;
 }
