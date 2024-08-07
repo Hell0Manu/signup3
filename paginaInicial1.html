@@ -90,7 +90,7 @@
                     <form id="formInitial">
                         <label for="email">Informe seu nome</label>
 
-                        <input id="" name="" autocomplete="" type="" class="form-input"
+                        <input id="nome" name="nome" autocomplete="" type="text" class="form-input"
                             title="Primeiro, insira o seu endereço de e-mail"
                             aria-label="Primeiro, insira o seu endereço de e-mail" value>
 
@@ -262,6 +262,52 @@
 
                         <form id="">
                             <label for="phone-number" class="states-number">Número de telefone</label>
+                            <div class="inputPhone">
+                                <select name="uf" id="uf">
+                                    <option value="0">UF</option>
+                                </select>
+
+                                <input id="phone" name="phone" autocomplete="phone" type="phone" class="form-input"
+                                    title="Insira seu numero de telefone" aria-label="Insira seu numero de telefone"
+                                    value>
+                            </div>
+
+
+                            <div role="alert" class="alert-error-email">
+                                <span class="error-circle">
+                                    <span class="icon-error" aria-hidden="true" role="none">
+                                        <svg width="16" height="16" fill="currentColor" focusable="false"
+                                            viewBox="0 0 24 24">
+                                            <path
+                                                d="m19.629 5.915-1.2-1.2-6.257 6.257-6.258-6.257-1.2 1.2 6.258 6.257-6.258 6.257 1.2 1.2 6.258-6.257 6.257 6.257 1.2-1.2-6.258-6.257 6.258-6.257Z">
+                                            </path>
+                                        </svg></span>
+                                </span>
+                                <div id="error-phone" class="login-error-message">
+                                    <p>Por favor, insira um endereço de e-mail
+                                        válido</p>
+                                </div>
+                            </div>
+                            <button class="btn-submit" type="submit"
+                                onclick="RegisterFormSubmit(event)">Continuar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="empresa">
+            <div class=" center">
+                <div class="content">
+                    <div class="title">
+                        <h1>Verifique o seu número de telefone com um código</h1>
+                        <p>Isso nos ajudará a entrar em contato
+                        </p>
+                    </div>
+                    <div class="">
+
+                        <form id="">
+                            <label for="company" class="states-number">Empresa</label>
                             <div class="inputPhone">
                                 <select name="uf" id="uf">
                                     <option value="0">UF</option>

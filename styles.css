@@ -62,7 +62,7 @@ a {
 /* BARRA DE PROGRESSO */
 .progressbar {
     width: 70%;
-    display: none; /*ALTERAR*/
+    display: flex; /*ALTERAR*/
     position: relative;
 }
 
@@ -357,7 +357,7 @@ p {
 
 /* ACCOUNT SELECTION */
 #account-selection-section {
-    display:none; /*ALTERAR*/
+    display:flex; /*ALTERAR*/
     justify-content: center; 
 }
 
@@ -486,5 +486,5 @@ p {
 }
 
 #number, #ct-nome {
-    display: none; /*ALTERAR*/
+    display: flex; /*ALTERAR*/
 }

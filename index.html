@@ -1,173 +1,56 @@
 <!DOCTYPE html>
-<html lang="pt-search">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seletor com Bandeiras e Pesquisa</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-
-        .search-select {
-            position: relative;
-            display: inline-block;
-            max-width: 400px;
-            min-width: 100px;
-        }
-
-        .search-input {
-            position: relative;
-        }
-
-        .search-input input {
-            padding-right: 30px;
-            width: 100%;
-            box-sizing: border-box;
-            cursor: pointer;
-        }
-
-        .search-button {
-            position: absolute;
-            right: 0;
-            top: 0;
-            bottom: 0;
-            border: none;
-            background: transparent;
-            cursor: pointer;
-        }
-
-        .search-button i {
-            font-size: 1.2em;
-        }
-
-        .search-list {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: white;
-            border: 1px solid #ccc;
-            width: 100%;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            max-height: 200px;
-            overflow-y: auto;
-            z-index: 1;
-        }
-
-        .search-select:focus-within .search-list {
-            display: block;
-        }
-
-        .search-input {
-            width: 100%;
-            box-sizing: border-box;
-            padding: 10px;
-            border: none;
-            border-bottom: 1px solid #ccc;
-        }
-
-        .search-item {
-            display: flex;
-            align-items: center;
-            padding: 10px;
-            cursor: pointer;
-            border-bottom: 1px solid #eee;
-        }
-
-        .search-item:hover {
-            background-color: #f0f0f0;
-        }
-
-        .np-select-input-option-content-icon img {
-            width: 24px;
-            height: 24px;
-            margin-right: 10px;
-        }
-
-        .search-item.hidden {
-            display: none;
-        }
-    </style>
+    <title>Document</title>
 </head>
-
 <body>
-    <div class="search-select">
-        <div class="search-input">
-            <input type="text" id="search-input" placeholder="Selecione um estado" readonly />
-            <button class="search-button" aria-label="Exibir lista">
-                <i class="fas fa-angle-down"></i>
-            </button>
+    
+    <section id="number">
+        <div class=" center">
+            <div class="content">
+                <div class="title">
+                    <h1>Verifique o seu número de telefone com um código</h1>
+                    <p>Isso nos ajudará a entrar em contato
+                    </p>
+                </div>
+                <div class="">
+
+                    <form id="">
+                        <label for="phone-number" class="states-number">Número de telefone</label>
+                        <div class="inputPhone">
+                            <select name="uf" id="uf">
+                                <option value="0">UF</option>
+                            </select>
+
+                            <input id="phone" name="phone" autocomplete="phone" type="phone" class="form-input"
+                                title="Insira seu numero de telefone" aria-label="Insira seu numero de telefone"
+                                value>
+                        </div>
+
+
+                        <div role="alert" class="alert-error-email">
+                            <span class="error-circle">
+                                <span class="icon-error" aria-hidden="true" role="none">
+                                    <svg width="16" height="16" fill="currentColor" focusable="false"
+                                        viewBox="0 0 24 24">
+                                        <path
+                                            d="m19.629 5.915-1.2-1.2-6.257 6.257-6.258-6.257-1.2 1.2 6.258 6.257-6.258 6.257 1.2 1.2 6.258-6.257 6.257 6.257 1.2-1.2-6.258-6.257 6.258-6.257Z">
+                                        </path>
+                                    </svg></span>
+                            </span>
+                            <div id="error-phone" class="login-error-message">
+                                <p>Por favor, insira um endereço de e-mail
+                                    válido</p>
+                            </div>
+                        </div>
+                        <button class="btn-submit" type="submit"
+                            onclick="RegisterFormSubmit(event)">Continuar</button>
+                    </form>
+                </div>
+            </div>
         </div>
-        <div class="search-list">
-            <input type="text" class="search-input" placeholder="Pesquisar estado" oninput="filterFunction()">
-            <div class="search-item" onclick="selectItem('Acre', 'https://wise.com/web-art/assets/flags/br.svg')">
-                <div class="np-select-input-option-content-icon">
-                    <img src="https://wise.com/web-art/assets/flags/br.svg" alt="Acre" />
-                </div>
-                <span>Acre</span>
-            </div>
-            <div class="search-item" onclick="selectItem('Alagoas', 'https://wise.com/web-art/assets/flags/br.svg')">
-                <div class="np-select-input-option-content-icon">
-                    <img src="https://wise.com/web-art/assets/flags/br.svg" alt="Alagoas" />
-                </div>
-                <span>Alagoas</span>
-            </div>
-            <div class="search-item" onclick="selectItem('Amapá', 'https://wise.com/web-art/assets/flags/br.svg')">
-                <div class="np-select-input-option-content-icon">
-                    <img src="https://wise.com/web-art/assets/flags/br.svg" alt="Amapá" />
-                </div>
-                <span>Amapá</span>
-            </div>
-            <div class="search-item" onclick="selectItem('Amazonas', 'https://wise.com/web-art/assets/flags/br.svg')">
-                <div class="np-select-input-option-content-icon">
-                    <img src="https://wise.com/web-art/assets/flags/br.svg" alt="Amazonas" />
-                </div>
-                <span>Amazonas</span>
-            </div>
-            <!-- Adicione outros itens com suas imagens aqui -->
-        </div>
-    </div>
-
-    <script>
-        function filterFunction() {
-            const searchInput = document.querySelector('.search-input');
-            const filter = searchInput.value.toLowerCase();
-            const items = document.querySelectorAll('.search-list .search-item');
-
-            items.forEach(item => {
-                const text = item.textContent || item.innerText;
-                if (text.toLowerCase().indexOf(filter) > -1) {
-                    item.classList.remove('hidden');
-                } else {
-                    item.classList.add('hidden');
-                }
-            });
-        }
-
-        function selectItem(value, imgSrc) {
-            const searchInput = document.querySelector('#search-input');
-            searchInput.value = value;
-
-            // Fechar a lista após a seleção
-            document.querySelector('.search-list').style.display = 'none';
-        }
-
-        document.querySelector('.search-button').addEventListener('click', () => {
-            const list = document.querySelector('.search-list');
-            list.style.display = list.style.display === 'block' ? 'none' : 'block';
-        });
-
-        // Fechar a lista ao clicar fora
-        document.addEventListener('click', (event) => {
-            const select = document.querySelector('.search-select');
-            if (!select.contains(event.target)) {
-                document.querySelector('.search-list').style.display = 'none';
-            }
-        });
-    </script>
+    </section>
 </body>
-
 </html>

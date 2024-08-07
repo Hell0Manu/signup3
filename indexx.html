@@ -89,14 +89,16 @@
             display: block;
         }
 
-
         form {
             width: 80%;
             margin: 50px auto 0px auto;
         }
 
-        @media(max-width: 667px) {
+        button {
+            margin: 5px;
+        }
 
+        @media(max-width: 667px) {
             input[type="text"],
             input[type="email"] {
                 width: 100%;
@@ -104,8 +106,6 @@
         }
     </style>
 </head>
-
-
 
 <body>
     <div id="container">
@@ -125,25 +125,25 @@
             <div id="second" class="info">
                 <label for="subject">What do you study:</label><br>
                 <input type="text" required="required" id="subject" placeholder="Subject"><br>
-                <input type="radio" required="required" value="
-            Yes" id="job1" name="job">I have a job.
+                <input type="radio" required="required" value="Yes" id="job1" name="job">I have a job.
                 <input type="radio" required="required" value="No" id="job2" name="job">I don't have a job.
                 <br><br>
+                <button id="back" onclick="prevLevel(2);">Back</button>
                 <button id="submit" onclick="nextLevel(2);">Submit</button>
             </div>
             <div id="third" class="info">
-                <label for="statment">Your statment:</label><br>
-                <textarea id="statment" placeholder="type your statment here"></textarea><br>
+                <label for="statment">Your statement:</label><br>
+                <textarea id="statment" placeholder="type your statement here"></textarea><br>
                 <label>Can you speak Persian?</label>
                 <input type="radio" required="required" value="Yes" id="language1" name="language">Yes.
                 <input type="radio" required="required" value="No" id="language2" name="language">No.
                 <br><br>
+                <button id="back" onclick="prevLevel(3);">Back</button>
                 <button id="submit" onclick="nextLevel(3);">Submit</button>
             </div>
             <div id="final" class="info">
-
+                <!-- Mensagem final aqui -->
             </div>
-
         </form>
         <div id="clearfix"></div>
     </div>
@@ -158,7 +158,6 @@
                     if (allLevel[i - 1].children[4].checked == false && allLevel[i - 1].children[5].checked == false) {
                         alert("hey first check one of the option!!!");
                     } else {
-
                         allLevel[i - 1].classList = "info";
                         allLevel[i].classList = "info active";
                         list[i - 1].style.width = "100%";
@@ -169,18 +168,15 @@
                             collectInfo.push(allLevel[i - 1].children[4].value);
                         } else {
                             collectInfo.push(allLevel[i - 1].children[5].value);
-                        }// end of checking which radio button user checked  
+                        }
                         if (i != "3") {
-
                             var message = document.querySelector("#final");
                             if (collectInfo[3] == "Yes") { job = "you have a job"; } else { job = "you do not have a job"; }
-                            if (collectInfo[5] == "Yes") { lan = "you know Persain"; } else { lan = "you do not know Persain"; }
+                            if (collectInfo[5] == "Yes") { lan = "you know Persian"; } else { lan = "you do not know Persian"; }
 
-
-                            message.innerHTML = "Hi " + collectInfo[0] + " welcome to my aplication you email address is: " + collectInfo[1] + ". As you said you study " + collectInfo[2] + " and " + job + " and " + lan + "<br> Here is your statment which i loved it. " + collectInfo[4] + ".";
+                            message.innerHTML = "Hi " + collectInfo[0] + " welcome to my application your email address is: " + collectInfo[1] + ". As you said you study " + collectInfo[2] + " and " + job + " and " + lan + "<br> Here is your statement which I loved: " + collectInfo[4] + ".";
                         }
-
-                    }// end of condition that check, if the user checked or not
+                    }
                 } else {
                     allLevel[i - 1].classList = "info";
                     allLevel[i].classList = "info active";
@@ -189,16 +185,25 @@
 
                     collectInfo.push(allLevel[i - 1].children[2].value);
                     collectInfo.push(allLevel[i - 1].children[6].value);
-
-
                 }
-
             } else {
                 alert("hey fill the form first!!!");
             }
         }
+
+        function prevLevel(i) {
+            if (i > 1) {
+                allLevel[i - 1].classList = "info";
+                allLevel[i - 2].classList = "info active";
+                list[i - 2].style.width = "0%";
+                list[i - 2].parentElement.className = "";
+
+                collectInfo.pop(); // Remove last added info
+                collectInfo.pop(); // Remove last added info
+            } else {
+                alert("You are already at the first step!");
+            }
+        }
     </script>
 </body>
-
-
 </html>
